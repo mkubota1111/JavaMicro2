@@ -21,37 +21,35 @@ public class InMemRestaurantRepository implements RestaurantRepository<Restauran
 
 	@Override
 	public void add(Restaurant entity) {
-		// TODO Auto-generated method stub
-		
+		entities.put(entity.getName(), entity);
 	}
 
 	@Override
 	public void remove(String id) {
-		// TODO Auto-generated method stub
-		
+		if (entities.containsKey(id)) {
+			entities.remove(id);
+		}
 	}
 
 	@Override
 	public void update(Restaurant entity) {
-		// TODO Auto-generated method stub
-		
+		if (entities.containsKey(entity.getName())) {
+			entities.put(entity.getName(), entity);
+		}
 	}
 
 	@Override
 	public boolean contains(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Entity<String> get(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Collection<Restaurant> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return entities.values();
 	}
 }
