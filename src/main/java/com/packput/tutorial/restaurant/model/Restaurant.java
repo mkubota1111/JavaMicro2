@@ -1,6 +1,7 @@
 package com.packput.tutorial.restaurant.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Restaurant extends BaseEntity<String> {
@@ -17,5 +18,13 @@ public class Restaurant extends BaseEntity<String> {
 	
 	public List<Table> getTables() {
 		return tables;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(String.format("id: {}, name: {}", this.getId(), this.getName()));
+		sb.append(String.format("Tables: {}", Arrays.asList(this.getTables())));
+		return sb.toString();
 	}
 }
